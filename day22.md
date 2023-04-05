@@ -86,7 +86,7 @@ N-gram overlap을 통해 score 계산, recall을 무시하고 precision만을 �
 
 <br/>
 
-## 7) Transformer 1
+# 7) Transformer 1
 ---
 Attention is all you need
 
