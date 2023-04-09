@@ -109,6 +109,8 @@ GPT같은 경우 masked self-attention을 사용(뒤에 오는 단어를 미리 
 
 * tagging task: 각각의 CLS 토큰을 포함해 각각의 vector들을 동일한 공통의 output layer에 통과해 최종 prediction
 
+<br/>
+
 ## BERT vs GPT-1
 
 **Training-data size**
