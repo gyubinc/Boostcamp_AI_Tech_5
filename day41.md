@@ -185,7 +185,7 @@ Decoder layer: 획득된 Context vector를 입력으로 출력을 예측
 
 입력 sequence의 길이가 매우 긴 경우, 처음에 나온 token에 대한 정보가 희석
 
-고정된 context vector 사이즈로 인해 긴 sequence에 대한 정보를 함축하기 어려ㅑ움
+고정된 context vector 사이즈로 인해 긴 sequence에 대한 정보를 함축하기 어fu움
 
 모든 token이 영향을 미치니, 중요하지 않은 token도 영향을 줌
 
