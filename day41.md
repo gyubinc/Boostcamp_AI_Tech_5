@@ -307,3 +307,4 @@ Decoder layer: 획득된 Context vector를 입력으로 출력을 예측
 
 다양한 형태로 분리 가능
 
+## 실습
