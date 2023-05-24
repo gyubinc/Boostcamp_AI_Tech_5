@@ -112,6 +112,232 @@
 
 또한 효율성과 정확성을 향상시키기 위해 자동화 할 수 있는 부분(pseudo-labeling)과 인간의 입력이 필요한 부분(annotation)을 분리함
 
-* 해당 과정은 추후 파일럿 작어블 통해 부족한 부분의 내용을 빠르게 보강하는 것이 중요함
+* 해당 과정은 추후 파일럿 작업을 통해 부족한 부분의 내용을 빠르게 보강하는 것이 중요함
+
+### 5. Prepare a Guideline
+
+설계한 데이터 주석 체계를 작업자들 혹은 크라우드소서들에게 전달하기 위한 문서화 작업 단계
+
+모든 edge case가 아닌 명확한 목적과 작업방식을 담아 문서의 난이도를 잘 조율해야 함
+
+가이드라인 작성 시 유의사항
+
+Overview -> 용어 정의 -> 어노테이션 체계 -> 유의사항 -> Edge Case로 목차 구성
+
+* 반드시 예시 첨부
+
+* 가독성 고려
+
+* 구축과 검수과정을 통해 지속적으로 개정하고, 버전 관리 필요
+
+### 6. Recruit Annotators
+
+좋은 데이터셋을 만들기 위해 적합한 작업자 선정
+
+* 윤리적인 부분도 고려해야 함
+
+작업자 특성
+
+* 내부조직 / 아웃소싱 / 크라우드소싱
+
+### 7. Instruct Annotators
+
+작성한 가이드라인을 작업자들과 공유하는 단계
+
+작업자들에게 최대한 질문을 이끌어내고 질문들을 정리하는 양방향적 소통이 핵심
+
+* 작업자들이 궁극적인 목적을 이해하는 것이 중요
+
+### 8. Data Annotation
+
+실제 데이터를 구축하는 단계
+
+작업자의 언어적, 인지적, 시각적 직관을 데이터로 옮기는 과정
+
+잘 설계된 Data Annotationj Tool을 통해 데이터를 라벨링
+
+* Quality control: 일관성 있고 정확한 데이터 생성
+
+* Efficiency: 시간을 단축할 수 있음
+
+* Scalability: 대규모 데이터를 처리할 수 있음
+
+**데이터 구축 및 가공**
+
+파일럿
+
+* 설계 시 발견하지 못한 이슈 발굴 및 해결
+
+* 가이드라인 보완 및 개정
+
+* 작업자 선정
+
+본 구축
+
+* 작업 일정 관리
+
+* 작업자 관리
+
+* 데이터 품질 관리
+
+### 9. Data Inspection(Internal Factor Verification)
+
+데이터 고유 요소인 주석 자체에 대한 검증 단계
+
+Inter-annotator agreement(IAA)를 통한 데이터의 일관성 확인
+
+가이드라인 자체도 데이터에 부합하는지 검증
+
+가이드라인이 잘못되었다면, 이를 수정하고 클렌징
+
+### 10. Data Verification(External Factor Verification)
+
+데이터 외재적 요소를 기반한 검증
+
+* Data Sufficiency
+
+* Data Diversity
+
+* Data Trustworthiness
+
+* Data Privacy and Security
+
+* Data Ethics Suitability
+
+### 11. Data Evaluation via Model Verification
+
+실제 모델링을 통해 데이터 품질을 평가하는 단계
+
+데이터가 제작 목표와 요구사항에 맞게 제작이 되었는지 양적으로 검증하는 단계
+
+데이터의 양을 늘려가며(Data efficiency), 데이터 구간을 분리하여 품질 일관성 검증
+
+### 12. Data Deliverables
+
+데이터에 대한 정보를 모델팀 혹은 유관부서에 전달하는 단계
+
+더 나아가 EDA 과정을 거친 후, 데이터 분석서 및 품질 평가서를 함께 전달하는 것이 좋음
+
+<br/>
+
+## Data Annotation Tool
+
+DMOps의 꽃
+
+### Human Translation VS Machine Translation
+
+Human Translation의 장단점
+
+장점
+
+* 높은 수준의 정확도
+
+* 사회 / 문화적인 차이 및 맥락을 고려한 초월 번역 가능
+
+* 중의적, 모호성이 강한 표현 해석
+
+단점
+
+* 비용 및 시간
+
+* 번영가마다 결과물 차이
+
+* 일관성 미흡
+
+<br/>
+
+Machine Translation의 장단점
+
+장점
+
+* 비용 및 시간
+
+* 다국어 번역
+
+* 일관성
+
+단점
+
+* 품질 보장이 어려움
+
+* 모호한 문장 번역이 어려움
+
+**Data Annotation Tool은 그 둘의 연결고리**
+
+### HAMT(Human Aided Machine Translation)
+
+텀퓨터 시스템이 대부분의 번역을 수행, 번역에 어려움을 겪는 경우 사람에게 도움 요청
+
+종류
+
+* Pre-editing: 번역 모델이 번역하기 전 사람이 원문의 문법 및 맞춤법, 문체 및 재구성, 철자 수정, 의미 보강 등 원본 수정
+
+* Pose-editing: 기계번역 결과에 대한 번역가의 오류 발견 및 수정, 좋은 번역 결과 선택
+
+### CAT(Computer Aided Translation)
+
+사람이 대부분의 작업을 수행, 맞춤법 검사기와 같은 리소스로 보조 컴퓨터 사용
+
+종류
+
+* Translation memory: 여러 언어를 담고 있는 텍스트 데이터베이스
+
+* Terminology database: 번역가들이 용어들을 효율적으로 저장 및 재사용하기 위한 데이터베이스
+
+### Doccano
+
+텍스트 분류, 시퀀스 라벨링, Seq2Seq task를 위한 주석도구 제공하는 오픈 소스
+
+### Brat(Browser-Based Rapid Annotation Tool)
+
+문장 내 개체 간의 관계를 주석 처리하는데 적합함
+
+### TagEditor
+
+spaCy 라이브러리를 사용하여 텍스트에 빠르게 주석을 달 수 있게 함
+
+데스크탑 어플리케이션 형태
+
+### Tagtog
+
+클라우드 기반 텍스트 주석 도구
+
+자동 라벨링, 자신만의 모델 학습
+
+### LightTag
+
+### Label-Studio
+
+### Upstage Data Labeling Space
+
+<br/>
+
+## Data Software Tool
+
+### CleanLab
+
+데이터셋의 문제를 자동으로 감지하는 툴
+
+### Snorkel
+
+학습 데이터 생성 툴
+
+### Refinery
+
+NLp 특화
+
+### Great Expectations
+
+### ydata-profiling
+
+EDA를 도와주는 툴
+
+## 크라우드 소싱
+
+대중 + 외부발주(Crowd + Outsourcing)
+
+데이터 가공 시장 전망
+
+* 규모가 커짐에 따라 중요성 대두됨
 
 
